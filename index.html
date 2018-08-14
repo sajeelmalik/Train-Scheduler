@@ -1,0 +1,81 @@
+<!-- Sajeel Malik
+Train Scheduler -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Train Scheduler</h1>
+            <p class="lead">See When You Need to Take Your Train!</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card" id="schedule">
+            <div class="card-header">
+                Current Train Schedule
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Train Name</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Frequency (min)</th>
+                            <th scope="col">Next Arrival</th>
+                            <th scope="col">Minutes Away</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                Add Train
+            </div>
+            <div class="card-body">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Train Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="BART">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Train Name</label>
+                        <input type="text" class="form-control" id="role" placeholder="Embarcadero">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">First Train Time (HH:mm - Military Time)</label>
+                        <input type="text" class="form-control" id="start-date" placeholder="20:15">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Frequency (minutes)</label>
+                        <input type="number" class="form-control" id="monthly-rate" placeholder="15">
+                    </div>
+                    <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="javascript.js"></script>
+</body>
+
+</html>
