@@ -51,27 +51,27 @@ $(document).ready(function () {
         var name = snapshot.val().name;
         var destination = snapshot.val().destination;
         var trainTime = snapshot.val().trainTime
-        var current = moment().format("HH:mm");
-        trainTime = moment(trainTime, "hmm").format("HH:mm");
+        var current = moment();
+        
+        // trainTime = moment(trainTime, "hmm").format("HH:mm");
         var frequency = snapshot.val().frequency
-        var nextArrival = trainTime;
+        var nextArrival = moment(trainTime, "HH:mm");
 
-        console.log("Pre loop " + nextArrival)
+        console.log("Pre loop ", nextArrival)
+
+        if (current.diff(nextArrival, "minutes") > 0) {
+            //adds the frequency until the nextArrival is equal to the train that comes next based on the current time
+			while (current.diff(nextArrival, "minutes") > 0) {
+                nextArrival.add(frequency, "minutes");
+			}
+        }
+
+        nextArrival = moment(nextArrival, "HHmm").format("HH:mm");
+        console.log("Post loop " + nextArrival)
 
         var minutesAway = moment(nextArrival, "HH:mm").diff(moment(current), "minutes");
-        do{
-            nextArrival = moment(nextArrival, "HH:mm").add(frequency, "minutes");
-            nextArrival = moment(nextArrival).format("HH:mm");
-            minutesAway = moment(nextArrival, "HH:mm").diff(moment(current), "minutes");
-
-        }
-        while(minutesAway < 0);
-
-        console.log("Pre loop " + nextArrival)
-        
 
         
-     
         counter++;
 
         $("#tbody").append(
